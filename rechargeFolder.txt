@@ -1,0 +1,53 @@
+suba         °ÌGö  Æ§sQÿ  0KJ9   ÌÛNz                                  `KJ9   	ÌGö     
+/*
+struct data{
+
+	char data[100];
+};
+
+
+int main(){
+	//oldUser user1;
+	FILE* fp;
+	struct data user1;
+	//char data[100];
+	fp = fopen("rechargeFolder.txt", "w+");
+	/*printf("enter you sim name\n");
+	user1.simName = malloc(sizeof(char)*20);
+	scanf("%s",user1.simName);
+	printf("enter you name\n");
+	user1.name = malloc(sizeof(char)*20);
+	scanf("%s",user1.name);
+	printf("enter you num\n");
+	scanf("%lld",&user1.num);
+	printf("enter you last recharge date\n");
+	scanf("%d",&user1.lastRechargeDate.day);
+	printf("enter you last recharge month\n");
+	scanf("%d",&user1.lastRechargeDate.month);
+	printf("enter you last recharge year\n");
+	scanf("%d",&user1.lastRechargeDate.year);
+	printf("enter expired or not\n");
+	scanf("%d",&user1.expiredOrNot);
+	fwrite(&user1, sizeof(oldUser), 20, fp);
+	if(fwrite != 0)
+		printf("Successfully");
+	else
+		printf("error");*/
+
+	//fgets(data,100,stdin);
+	scanf("%s",user1.data);
+	fwrite(&user1,sizeof(user1),1,fp);
+//	fputs(data,fp);
+	fclose(fp);
+
+	FILE* fo = fopen("rechargeFolder.txt","r");
+	int c;
+	while(1){
+		c = fgetc(fo);
+		if(feof(fo))
+			break;
+		printf("%c",c);
+	}
+	fclose(fo);
+	
+}*/

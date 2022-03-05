@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+extern oldUser user;
+int main () {
+	FILE *file,*file1;
+        file = fopen("recharge.txt", "r");
+   	file1 = fopen("temp.txt","w");
+  	if (file == NULL) {
+  		fprintf(stderr, "\nError to open the file\n");
+      		exit (1);
+   	}
+	oldUser exp;
+   	int found = 0;
+   	while(fread(&exp,sizeof(oldUser),1,file)){
+		if(strcmp(user.name,exp.name) == 0){
+			found = 1;
+		}
+		else{
+			fwrite(&user, sizeof(oldUser),1,file1);
+		}	
+	}
+   	fclose(file);
+   	fclose(file1);
+ 
+ 	if(found){
+   		file = fopen("recharge.txt", "w");
+   		file1 = fopen("temp.txt","r");
+   		while(fread(&exp, sizeof(oldUser),1,file1)){
+			fwrite(&exp, sizeof(oldUser),1,file);
+   		}
+   	}
+}
